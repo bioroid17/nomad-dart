@@ -1,0 +1,28 @@
+class Player {
+  final String name;
+  int xp;
+  String team;
+
+  Player.fromJson(Map<String, dynamic> playerJson)
+      : name = playerJson['name'],
+        xp = playerJson['xp'],
+        team = playerJson['team'];
+
+  void sayHello() {
+    print("Hi, my name is $name");
+  }
+}
+
+void main() {
+  var apiData = [
+    {"name": "nico", "team": "red", "xp": 0},
+    {"name": "lynn", "team": "red", "xp": 0},
+    {"name": "dal", "team": "red", "xp": 0}
+  ];
+
+  apiData.forEach((playerJson) {
+    // 각 데이터는 playerJson이라고 부를 것임
+    var player = Player.fromJson(playerJson);
+    player.sayHello();
+  });
+}
